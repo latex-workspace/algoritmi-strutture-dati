@@ -10,5 +10,7 @@
 # Ignore tikz folder externalization folder
 tikz/
 
+.DS_Store
+
 !.gitignore
 !.README.md
