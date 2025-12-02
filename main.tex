@@ -1,16 +1,11 @@
 %&../.preamble
-
-\endofdump
+\externalize{../.preamble}
 
 % \pdfcompresslevel=0
 % \pdfobjcompresslevel=0
 %\tcbset{shield externalize}
 \usepackage{array}
 \usepackage{makecell}
-
-\usetikzlibrary{external}
-\tikzset{external/system call={pdflatex --shell-escape --fmt=../.preamble --halt-on-error -jobname "\image" "\endofdump\texsource"}}
-\tikzexternalize[prefix=tikz/]
 
 % \tikzexternalize
 % \tcbset{shield externalize}
@@ -2306,7 +2301,7 @@ L'algoritmo funziona perchè ho la certezza che un nodo, quando viene estratto (
 		\verb|delete min|    & $ O\left(n\right) $ & $ O\left(n\right) $    & $ O\left(\log \left(n\right)\right) $    & $ O\left(\log \left(n\right)\right) $       \\
 		\verb|insert|        & $ O\left(n\right) $ & $ O\left(1\right) $    & $ O\left(\log \left(n\right)\right) $    & $ O^{*}\left(1\right) $                     \\
 		\verb|decrease prio| & $ O\left(m\right) $ & $ O\left(1\right) $    & $ O\left(\log \left(n\right)\right) $    & $ O^{*}\left(1\right) $                     \\
-		Totale               &                     & $ O\left(n^2 \right) $ & $ O \left(m \log \left(v\right)\right) $ & $ O\left(m + n \log \left(n\right)\right) $\\
+		Totale               &                     & $ O\left(n^2 \right) $ & $ O \left(m \log \left(v\right)\right) $ & $ O\left(m + n \log \left(n\right)\right) $ \\
 		\bottomrule
 	\end{tabular}
 \end{center}
@@ -4209,10 +4204,10 @@ Complessità:
 \[
 	T\left(n\right) = \underbracket[0.1ex]{T\left(\frac{n}{5}\right)}_{\text{chiamata 1}} +  \underbracket[0.1ex]{T \left(\frac{7}{10}n\right) }_{\text{chiamata 2 o 3}}+ \underbracket[0.1ex]{\frac{11}{5} n}_{\text{mediane pivot $^{*} $}}
 \]
-$ ^{*} $ il fattore deriva da 
+$ ^{*} $ il fattore deriva da
 \begin{itemize}
-  \item $ 6 \cdot \frac{n}{5} $ per trovare mediane di blocchetti da 5
-  \item $ n $ per eseguire l'operazione di \verb|pivot| sull'array originale
+	\item $ 6 \cdot \frac{n}{5} $ per trovare mediane di blocchetti da 5
+	\item $ n $ per eseguire l'operazione di \verb|pivot| sull'array originale
 \end{itemize}
 
 Risolvendo la ricorrenza si può verificare che la complessità è di $ O\left(n\right) $
